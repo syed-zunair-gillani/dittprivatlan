@@ -13,7 +13,7 @@ const NavBar = () => {
 
      return (
           <>
-          <header className={`py-2 transition-all duration-200 ease-linear z-50 text-white fixed w-full
+          <header className={`py-3 transition-all duration-200 ease-linear z-50 text-white fixed w-full
                ${headerClr && ' bg-slate-900 top-0 shadow-xl'}`}>
                <div className='container mx-auto flex items-center justify-between px-3 md:px-0'>
                     <div>
