@@ -13,8 +13,8 @@ const NavBar = () => {
 
      return (
           <>
-          <header className={`py-2 transition-all duration-200 ease-linear z-50
-               ${headerClr && 'fixed w-full bg-slate-900 text-white top-0 shadow-xl'}`}>
+          <header className={`py-2 transition-all duration-200 ease-linear z-50 text-white fixed w-full
+               ${headerClr && ' bg-slate-900 top-0 shadow-xl'}`}>
                <div className='container mx-auto flex items-center justify-between px-3 md:px-0'>
                     <div>
                          <Image src={`/images/sitelogo.png`} width={240} height={80} alt="logo" className='w-[140px] md:w-[240px]' />

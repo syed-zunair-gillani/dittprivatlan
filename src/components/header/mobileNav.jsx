@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 
 const MobileNav = ({ navItems, isMobile }) => {
-  console.log("🚀 ~ MobileNav ~ isMobile:", isMobile);
   return (
     <>
       <div
