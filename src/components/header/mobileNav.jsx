@@ -5,12 +5,12 @@ const MobileNav = ({ navItems, isMobile }) => {
   return (
     <>
       <div
-        className={`md:hidden bg-main fixed w-full p-6 text-white shadow-xl transition-all duration-200 ease-linear z-50
+        className={`md:hidden bg-main fixed w-full text-white shadow-xl transition-all duration-200 ease-linear z-50
           ${isMobile ? "top-[56px]" : "-top-[100%]"}`}
       >
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col">
           {navItems.map((item, idx) => (
-            <li key={idx} className="capitalize hover:text-black">
+            <li key={idx} className={`capitalize hover:text-black p-4 border-b-[1px] border-gray-300 ${idx+1 === navItems.length && 'border-none'}`}>
               <Link href={item.href}>{item.label}</Link>
             </li>
           ))}
