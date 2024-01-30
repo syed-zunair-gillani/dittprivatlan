@@ -11,6 +11,10 @@ import Range from '@/components/range';
 
 export default function Home() {
 
+  const backgroundStyle = {
+    background: 'linear-gradient(rgba(9, 38, 53, 0.4), rgba(9, 38, 53, 1))',
+  }
+
   return (
     <>
       <Main />
@@ -40,9 +44,40 @@ export default function Home() {
           }
         </div>
       </section>
-      <section className='bg-gray-100 py-20'>
-        <h2 className='text-3xl sm:text-4xl md:text-6xl justify-center items-center h-full font-bold text-sec mx-auto text-center'>Välj önskat lånebelopp</h2>
-        <Range/>
+      <section className=' py-20 bg' >
+        <h2 className='text-3xl sm:text-4xl md:text-6xl justify-center items-center h-full font-bold text-main mx-auto text-center'>Välj önskat lånebelopp</h2>
+        <Range />
+      </section>
+      <section className='my-20 container gap-6 mx-auto px-3 grid grid-cols-3'>
+        {
+          [1, 2, 3].map((item, idx) => (
+            <div key={idx} className='flex flex-col bg-sec justify-center items-center text-gray-300 text-center z-10 p-10 relative rounded-2xl'>
+              <h2 className='font-bold text-2xl text-main py-2'>Axo lån hos Axo Finans AB</h2>
+              <div className='pt-1 my-6 bg-main w-20' />
+              <h4 className='font-bold my-3'>{`Med Axo lån hos Axo Finans AB kan ni pressa ner den effektiva räntan rejält och få mer pengar över till annat. Låga inkomstkrav, 18 årsgräns för att göra en ansökan och hela 30 långivare.`}</h4>
+              <p> {`Låna från 10 000 kronor upp till 600 000 kronor. Endast 1 kreditupplysning. Kostnadsfri och ej bindande. Axo erbjuder lån med lång återbetalningstid, hela 20 år.`}</p>
+              <h4 className='font-bold my-3 text-main'> {`Axo har skyhöga omdömen hos Trustpilot`}</h4>
+              <Link href={`#`} className='bg-transprent w-full text-main border hover:text-sec hover:bg-main hover:border-transparent border-main mt-3 py-2.5 font-semibold rounded-md'>Ansök</Link>
+            </div>
+          ))
+        }
+      </section>
+      <section className='container mx-auto my-20 px-3'>
+        {
+          dataContent?.map((item, idx) => (
+            <div className={`grid gap-8 items-center my-8 ${!item?.image ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`} key={idx}>
+              <div className={`${idx % 2 === 0 ? '' : 'order-1'}`}>
+                <h3 className='font-bold text-3xl text-main'>{item.title}</h3>
+                <p className='text-gray-700 mt-4 text-xl'>{item.content}</p>
+              </div>
+              {
+                item?.image && <div>
+                  <Image src={item?.image} alt="image" width={600} height={600} className='rounded-2xl' />
+                </div>
+              }
+            </div>
+          ))
+        }
       </section>
     </>
   )
@@ -167,5 +202,26 @@ const morgageList = [
     reviewLink: '#',
     borrowLink: '#',
     image: '/images/image1.jpeg'
+  }
+]
+
+const dataContent = [
+  {
+    title: 'Betala alltid dina fakturor I tid',
+    content: 'Enklaste sättet att bibehålla en god kreditvärdighet är att alltid betala fakturor i tid och vårda din privatekonomi. Dels för att undvika extra kostnader i form av påminnelseavgifter och räntekostnader. Framförallt undviker du betalningsanmärkningar och Kronofogden. Du bör regelbundet lägga tid för din privatekonomi och skulle du ha betalningsproblem får du aldrig strunta i fakturorna. Ring istället din långivare för att hitta lösningar som funkar för er båda (som avbetalning).',
+    image: '/images/invoice.jpeg'
+  },
+  {
+    title: 'Betala alltid dina fakturor I tid',
+    content: 'Enklaste sättet att bibehålla en god kreditvärdighet är att alltid betala fakturor i tid och vårda din privatekonomi. Dels för att undvika extra kostnader i form av påminnelseavgifter och räntekostnader. Framförallt undviker du betalningsanmärkningar och Kronofogden. Du bör regelbundet lägga tid för din privatekonomi och skulle du ha betalningsproblem får du aldrig strunta i fakturorna. Ring istället din långivare för att hitta lösningar som funkar för er båda (som avbetalning).',
+    image: '/images/invoice.jpeg'
+  },
+  {
+    title: 'Betala alltid dina fakturor I tid',
+    content: 'Enklaste sättet att bibehålla en god kreditvärdighet är att alltid betala fakturor i tid och vårda din privatekonomi. Dels för att undvika extra kostnader i form av påminnelseavgifter och räntekostnader. Framförallt undviker du betalningsanmärkningar och Kronofogden. Du bör regelbundet lägga tid för din privatekonomi och skulle du ha betalningsproblem får du aldrig strunta i fakturorna. Ring istället din långivare för att hitta lösningar som funkar för er båda (som avbetalning).',
+  },
+  {
+    title: 'Betala alltid dina fakturor I tid',
+    content: 'Enklaste sättet att bibehålla en god kreditvärdighet är att alltid betala fakturor i tid och vårda din privatekonomi. Dels för att undvika extra kostnader i form av påminnelseavgifter och räntekostnader. Framförallt undviker du betalningsanmärkningar och Kronofogden. Du bör regelbundet lägga tid för din privatekonomi och skulle du ha betalningsproblem får du aldrig strunta i fakturorna. Ring istället din långivare för att hitta lösningar som funkar för er båda (som avbetalning).',
   }
 ]

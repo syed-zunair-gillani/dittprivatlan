@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg{
+     background: 
+   linear-gradient(to top, rgba(9, 38, 53, 1) 30%, rgba(9, 38, 53, .8) 59%, rgba(9, 38, 53, .4) 100%),
+   url('../../public/images/bg.jpeg') no-repeat;
+   background-size: cover;
+   background-position: center;
+}

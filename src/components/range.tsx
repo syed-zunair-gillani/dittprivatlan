@@ -9,7 +9,7 @@ const Range = () => {
     <div className='max-w-[800px] mx-auto mt-16 px-3 md:px-0'>
           <label
             htmlFor="customRange3"
-            className="mb-2 items-center gap-3 flex justify-between text-sec"
+            className="mb-2 items-center gap-3 flex justify-between text-main"
           >
             Range Låna 1000 - Låna 1000000
           </label>
@@ -23,7 +23,7 @@ const Range = () => {
             onChange={(e)=>setvalue(e.target?.value)}
             id="customRange3"
           />
-          <button className="mt-10 bg-main w-full p-4 rounded-xl md:text-xl hover:bg-sec hover:text-main shadow-xl font-semibold text-sec" >Låna {value}</button>
+          <button className="mt-10 bg-main w-full p-4 rounded-xl md:text-xl hover:bg-main/90 hover:text-sec shadow-xl font-semibold text-sec" >Låna {value}</button>
         </div>
     </>
   )
