@@ -9,3 +9,40 @@
    background-size: cover;
    background-position: center;
 }
+
+.content p{
+  font-size: 18px;
+  color: gray;
+}
+.content h2{
+  font-size: 26px;
+  font-weight: 700;
+  padding: .5rem 0;
+  color: #092635
+}
+.content h3, .content h4, .content h5, .content h6{
+  font-size: 22px;
+  font-weight: 700;
+  padding: .5rem 0;
+  color: #092635
+}
+.content strong{
+  color: #9DBC98;
+}
+.content a{
+  color: #9DBC98;
+  text-decoration: underline;
+}
+
+.content ol, .content ul{
+  padding-left: 1.3rem;
+}
+.content ol{
+  list-style-type: decimal;
+}
+.content ul{
+  list-style-type: circle;
+}
+.content li{
+  margin: 6px 0;
+}
