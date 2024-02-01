@@ -10,9 +10,9 @@ const Footer = () => {
                          <Image src={`/images/sitelogo.png`} width={240} height={80} alt="logo" className='w-[140px] md:w-[240px]' />
                     </div>
                     <ul className='flex items-center gap-5 mt-6'>
-                         <li className='capitalize hover:text-main text-lg'><Link href="#">Om oss</Link></li>
-                         <li className='capitalize hover:text-main text-lg'><Link href="#">Allmänna villkor och cookies</Link></li>
-                         <li className='capitalize hover:text-main text-lg'><Link href="#">Kontakta oss</Link></li>
+                         <li className='capitalize hover:text-main text-lg'><Link href="/om-oss">Om oss</Link></li>
+                         <li className='capitalize hover:text-main text-lg'><Link href="/allmanna-villkor-och-cookies">Allmänna villkor och cookies</Link></li>
+                         <li className='capitalize hover:text-main text-lg'><Link href="/kontakta-oss">Kontakta oss</Link></li>
                     </ul>
                </div>
           </footer>

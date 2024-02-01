@@ -20,8 +20,14 @@
   padding: .5rem 0;
   color: #092635
 }
-.content h3, .content h4, .content h5, .content h6{
+.content h3, .content h4, .content h6{
   font-size: 22px;
+  font-weight: 700;
+  padding: .5rem 0;
+  color: #092635
+}
+.content h6{
+  font-size: 18px;
   font-weight: 700;
   padding: .5rem 0;
   color: #092635

@@ -1,3 +1,4 @@
+import ListCard from '@/components/listCard'
 import PageBanner from '@/components/main/pageBanner'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -27,6 +28,7 @@ function SlugCategory() {
                 <div className='flex flex-col bg-sec justify-center items-center text-gray-300 text-center z-10 p-4 relative rounded-xl'>
                   <Image src={`/images/coopmedmera.png`} alt={`coopmedmera`} width={300} height={200} className='w-full h-full object-cover rounded-xl' />
                   <h4 className='font-bold my-6'>Coop Privatlån hos MedMera Bank</h4>
+                  {/* <p className='mb-4'>Krav: Svenskt registrerat företag, enskild firma eller AB. Försäljning i minst 6 månader.</p> */}
                   <Link href={`#`} className='bg-main w-full hover:bg-transparent hover:text-main border border-transparent hover:border-main text-sec py-2.5 font-semibold rounded-md'>Ansök</Link>
                   <Link href={`#`} className='bg-transprent w-full text-main border hover:text-sec hover:bg-main hover:border-transparent border-main mt-3 py-2.5 font-semibold rounded-md'>Låna nu</Link>
                 </div>
@@ -35,6 +37,8 @@ function SlugCategory() {
           }
         </div>
       </section>
+      
+
     </>
   )
 }
@@ -43,3 +47,5 @@ export default SlugCategory
 
 
 const data = [1,2,3,4,5,6,7,8,9]
+
+
