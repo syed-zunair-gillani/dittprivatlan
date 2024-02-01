@@ -88,52 +88,52 @@ const dataIconList = [
   {
     icon: <BsBank2 />,
     title: 'Privatlån',
-    link: '#'
+    link: '/category/slug'
   },
   {
     icon: <FaPhoneVolume />,
     title: 'Låneförmedling',
-    link: '#'
+    link: '/category/slug'
   },
   {
     icon: <FaLocationArrow />,
     title: 'Snabblån',
-    link: '#'
+    link: '/category/slug'
   },
   {
     icon: <FaCcVisa />,
     title: 'Kreditkort',
-    link: '#'
+    link: '/category/slug'
   },
   {
     icon: <BsBank2 />,
     title: 'Privatlån',
-    link: '#'
+    link: '/category/slug'
   },
   {
     icon: <FaPhoneVolume />,
     title: 'Låneförmedling',
-    link: '#'
+    link: '/category/slug'
   },
   {
     icon: <FaLocationArrow />,
     title: 'Snabblån',
-    link: '#'
+    link: '/category/slug'
   },
   {
     icon: <FaCcVisa />,
     title: 'Kreditkort',
-    link: '#'
+    link: '/category/slug'
   },
   {
     icon: <FaLocationArrow />,
     title: 'Snabblån',
-    link: '#'
+    link: '/category/slug'
   },
   {
     icon: <FaCcVisa />,
     title: 'Kreditkort',
-    link: '#'
+    link: '/category/slug'
   },
 
 ]
