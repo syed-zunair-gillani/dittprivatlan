@@ -1,14 +1,16 @@
 import ListCard from '@/components/listCard'
 import PageBanner from '@/components/main/pageBanner'
+import StarRating from '@/components/starRating'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+
 
 function SlugCategory() {
   return (
     <>
       <PageBanner title=""/>
-      <section className='my-20 container content px-3 mx-auto'>
+      <section className='mt-20 container content px-3 mx-auto'>
         <p>Vi tittar på kundnöjdhet och kundomdömen hos TrustPilot, Google omdömen, Reco och Eniro som är oberoende källor. Härigenom kan vi presentera vilka som är de bästa låneförmedlarna just nu.</p>
         <h2>Ni kan också se vilka låneförmedlare som har flest långivare och vilka som använder sig av UC.  </h2>
         <p>Det finns idag en uppsjö av låneförmedlare. Något som är värt att nämna bland dessa låneförmedlare är att flera av dem går under olika namn men ingår i samma företag. Exempelvis kan vi se att Zmarta lån och lånföralla ingår i företaget Se Freedom Finance hos alla bolag. Klicka här för att komma till Freedom Finans!</p>
@@ -20,7 +22,8 @@ function SlugCategory() {
         </ol>
         <h4>** Direkto säger att de jämför 20 långivare, men samarbetar med 40 banker. Det gör att de skulle ligga först på listan, men eftersom det inte är bekräftat av oss, så ligger de sist.</h4>
       </section>
-      <section className='my-20 container mx-auto px-3'>
+      <StarRating/>
+      <section className='mt-10 mb-20 container mx-auto px-3'>
         <div className='container mx-auto grid px-3 md:px-0 sm:grid-cols-2 my-20 md:grid-cols-3 lg:grid-cols-4 gap-4'>
           {
             data?.map((item: any, idx: number) => (
@@ -37,7 +40,6 @@ function SlugCategory() {
           }
         </div>
       </section>
-      
 
     </>
   )

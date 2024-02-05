@@ -48,7 +48,7 @@ export default function Home() {
         <h2 className='text-3xl sm:text-4xl md:text-6xl justify-center items-center h-full font-bold text-main mx-auto text-center'>Välj önskat lånebelopp</h2>
         <Range />
       </section>
-      <section className='my-20 container gap-6 mx-auto px-3 grid grid-cols-3'>
+      <section className='my-20 container gap-6 mx-auto px-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         {
           [1, 2, 3].map((item, idx) => (
             <div key={idx} className='flex flex-col bg-sec justify-center items-center text-gray-300 text-center z-10 p-10 relative rounded-2xl'>
