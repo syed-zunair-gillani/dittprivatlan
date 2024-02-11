@@ -77,7 +77,7 @@ export default async function Home() {
             <div key={idx} className='flex flex-col bg-sec justify-center items-center text-gray-300 text-center z-10 p-10 relative rounded-2xl'>
               <h2 className='font-bold text-2xl text-main py-2'>{item?.title}</h2>
               <div className='pt-1 my-6 bg-main w-20' />
-              <div className="content" dangerouslySetInnerHTML={{ __html: item?.content }} />
+              <div className="content !text-gray-300" dangerouslySetInnerHTML={{ __html: item?.content }} />
               <Link href={item.link || `#`} target='_blank' className='bg-transprent w-full text-main border hover:text-sec hover:bg-main hover:border-transparent border-main mt-3 py-2.5 font-semibold rounded-md'>Ansök</Link>
             </div>
           ))
