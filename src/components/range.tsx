@@ -1,9 +1,14 @@
 'use client'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
 const Range = () => {
      const [value, setvalue] = useState<any>(5000)
+     const router =  useRouter()
+     const handleClick = () => {
+      router.push(`lan-${value}`)
+     }
   return (
     <>
     <div className='max-w-[800px] mx-auto mt-16 px-3 md:px-0'>
@@ -23,7 +28,7 @@ const Range = () => {
             onChange={(e)=>setvalue(e.target?.value)}
             id="customRange3"
           />
-          <button className="mt-10 bg-main w-full p-4 rounded-xl md:text-xl hover:bg-main/90 hover:text-sec shadow-xl font-semibold text-sec" >Låna {value}</button>
+          <button onClick={handleClick} className="mt-10 bg-main w-full p-4 rounded-xl md:text-xl hover:bg-main/90 hover:text-sec shadow-xl font-semibold text-sec" >Låna {value}</button>
         </div>
     </>
   )

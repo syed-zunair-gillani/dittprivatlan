@@ -105,7 +105,7 @@ query mortgage($id: ID = "") {
 
 
 export const QBrokers = gql`
-query brokers($terms: [String] = "private-loan") {
+query brokers($terms: [String] = "") {
   brokers(
     first: 100
     where: {taxQuery: {taxArray: {taxonomy: BROKERCATEGORY, terms: $terms, field: SLUG}}}
@@ -134,7 +134,7 @@ query brokers($terms: [String] = "private-loan") {
 
 
 export const QSingleBrokers = gql`
-query brokers($id: ID = "compari-loan") {
+query brokers($id: ID = "") {
   broker(id: $id, idType: URI) {
     title
     featuredImage {
