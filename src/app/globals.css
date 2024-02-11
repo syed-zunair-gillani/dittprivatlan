@@ -39,7 +39,10 @@
   color: #9DBC98;
   text-decoration: underline;
 }
-
+.content img{
+  width: 60% !important;
+  margin: 1rem 0;
+}
 .content ol, .content ul{
   padding-left: 1.3rem;
 }
@@ -47,8 +50,16 @@
   list-style-type: decimal;
 }
 .content ul{
-  list-style-type: circle;
+  list-style-type: disc;
 }
 .content li{
   margin: 6px 0;
+}
+
+
+
+@media (max-width : 768px){
+  .content img{
+    width: 100% !important;
+  }
 }

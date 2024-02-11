@@ -8,8 +8,24 @@ import { FaLocationArrow } from "react-icons/fa";
 import { FaCcVisa } from "react-icons/fa";
 import MorgageCard from '@/components/morgageCard';
 import Range from '@/components/range';
+import { client } from '@/config/client'
+import { QMortgages, QCategoriesList } from '@/config/query'
 
-export default function Home() {
+async function getData() {
+  const response = await client.query({ query: QMortgages });
+  const categoriesResponse = await client.query({ query: QCategoriesList });
+  
+  const mortgage = response.data.mortgages.nodes
+  const categories = categoriesResponse.data.categories.nodes
+ 
+  return { mortgage, categories }
+}
+
+
+export default async function Home() {
+
+  const { mortgage, categories } =  await getData()
+  console.log("🚀 ~ Home ~ categories:", categories)
 
   const backgroundStyle = {
     background: 'linear-gradient(rgba(9, 38, 53, 0.4), rgba(9, 38, 53, 1))',
@@ -20,16 +36,19 @@ export default function Home() {
       <Main />
       <section className='container mx-auto grid px-3 md:px-0 sm:grid-cols-3 my-20 grid-cols-2  md:grid-cols-5 gap-3'>
         {
-          dataIconList?.map((item, idx) => (
-            <Link href={item.link}>
+          categories?.map((item:any, idx:number) => {
+            const icon = dataIconList.find((i:any)=> i.name === item.categoriesPostMeta.categoriyIcon)
+            return(
+              <Link href={`category/${item.slug}`}>
               <div className='group border overflow-hidden rounded-xl border-main'>
                 <div key={idx} className='py-10 flex group-hover:bg-sec justify-center transition-all duration-200 ease-linear flex-col items-center'>
-                  <span className='text-4xl group-hover:scale-110 transition-all duration-200 ease-linear text-main'>{item.icon}</span>
+                  <span className='text-4xl group-hover:scale-110 transition-all duration-200 ease-linear text-main'>{icon?.icon}</span>
                 </div>
                 <p className='bg-main p-2 md:text-base text-sm text-center font-semibold'>{item.title}</p>
               </div>
             </Link>
-          ))
+            )
+          })
         }
       </section>
       <section>
@@ -38,7 +57,7 @@ export default function Home() {
         <p className="text-center text-main">Omdömen, fakta och partners</p>
         <div className='container mx-auto grid px-3 md:px-0 sm:grid-cols-2 my-20 md:grid-cols-3 lg:grid-cols-4 gap-4'>
           {
-            morgageList?.map((item, idx) => (
+            mortgage?.map((item:any, idx:number) => (
               <MorgageCard key={idx} data={item} />
             ))
           }
@@ -87,122 +106,20 @@ export default function Home() {
 const dataIconList = [
   {
     icon: <BsBank2 />,
-    title: 'Privatlån',
-    link: '/category/slug'
+    name: 'bank',
   },
   {
     icon: <FaPhoneVolume />,
-    title: 'Låneförmedling',
-    link: '/category/slug'
+    name: 'phone',
   },
   {
     icon: <FaLocationArrow />,
-    title: 'Snabblån',
-    link: '/category/slug'
+    name: 'arrow',
   },
   {
     icon: <FaCcVisa />,
-    title: 'Kreditkort',
-    link: '/category/slug'
+    name: 'visa card',
   },
-  {
-    icon: <BsBank2 />,
-    title: 'Privatlån',
-    link: '/category/slug'
-  },
-  {
-    icon: <FaPhoneVolume />,
-    title: 'Låneförmedling',
-    link: '/category/slug'
-  },
-  {
-    icon: <FaLocationArrow />,
-    title: 'Snabblån',
-    link: '/category/slug'
-  },
-  {
-    icon: <FaCcVisa />,
-    title: 'Kreditkort',
-    link: '/category/slug'
-  },
-  {
-    icon: <FaLocationArrow />,
-    title: 'Snabblån',
-    link: '/category/slug'
-  },
-  {
-    icon: <FaCcVisa />,
-    title: 'Kreditkort',
-    link: '/category/slug'
-  },
-
-]
-
-const morgageList = [
-  {
-    title: 'lendo',
-    info: 'Låneförmedlaren Lendo - bra lånejämförelse för lägre ränta',
-    intrustRate: '2,95',
-    reviewLink: '#',
-    borrowLink: '#',
-    image: '/images/image1.jpeg'
-  },
-  {
-    title: 'lendo',
-    info: 'Låneförmedlaren Lendo - bra lånejämförelse för lägre ränta',
-    intrustRate: '2,95',
-    reviewLink: '#',
-    borrowLink: '#',
-    image: '/images/image1.jpeg'
-  },
-  {
-    title: 'lendo',
-    info: 'Låneförmedlaren Lendo - bra lånejämförelse för lägre ränta',
-    intrustRate: '2,95',
-    reviewLink: '#',
-    borrowLink: '#',
-    image: '/images/image1.jpeg'
-  },
-  {
-    title: 'lendo',
-    info: 'Låneförmedlaren Lendo - bra lånejämförelse för lägre ränta',
-    intrustRate: '2,95',
-    reviewLink: '#',
-    borrowLink: '#',
-    image: '/images/image1.jpeg'
-  },
-  {
-    title: 'lendo',
-    info: 'Låneförmedlaren Lendo - bra lånejämförelse för lägre ränta',
-    intrustRate: '2,95',
-    reviewLink: '#',
-    borrowLink: '#',
-    image: '/images/image1.jpeg'
-  },
-  {
-    title: 'lendo',
-    info: 'Låneförmedlaren Lendo - bra lånejämförelse för lägre ränta',
-    intrustRate: '2,95',
-    reviewLink: '#',
-    borrowLink: '#',
-    image: '/images/image1.jpeg'
-  },
-  {
-    title: 'lendo',
-    info: 'Låneförmedlaren Lendo - bra lånejämförelse för lägre ränta',
-    intrustRate: '2,95',
-    reviewLink: '#',
-    borrowLink: '#',
-    image: '/images/image1.jpeg'
-  },
-  {
-    title: 'lendo',
-    info: 'Låneförmedlaren Lendo - bra lånejämförelse för lägre ränta',
-    intrustRate: '2,95',
-    reviewLink: '#',
-    borrowLink: '#',
-    image: '/images/image1.jpeg'
-  }
 ]
 
 const dataContent = [

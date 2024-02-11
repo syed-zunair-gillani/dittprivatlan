@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.9.4",
     "axios": "^1.6.7",
     "framer-motion": "^10.16.16",
+    "graphql": "^16.8.1",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "react": "^18",

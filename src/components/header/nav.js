@@ -16,9 +16,9 @@ const NavBar = () => {
           <header className={`py-3 transition-all duration-200 ease-linear z-50 text-white fixed w-full
                ${(isMobile || headerClr) && ' bg-sec top-0 shadow-xl'}`}>
                <div className='container mx-auto flex items-center justify-between px-3 md:px-0'>
-                    <div>
+                    <Link href="/">
                          <Image src={`/images/sitelogo.png`} width={240} height={80} alt="logo" className='w-[140px] md:w-[240px]' />
-                    </div>
+                    </Link>
                     {/* nav bar */}
                     <div className='hidden md:block'>
                          <ul className='flex items-center gap-5'>
