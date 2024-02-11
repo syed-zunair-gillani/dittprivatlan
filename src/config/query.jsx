@@ -150,3 +150,23 @@ query brokers($id: ID = "") {
     content
   }
 }`;
+
+export const QHomepage = gql`
+query page {
+  page(id: "4717", idType: DATABASE_ID) {
+    homePageMeta {
+      cards {
+        title
+        link
+        content
+      }
+      pageContent {
+        title
+        info
+        image {
+          mediaItemUrl
+        }
+      }
+    }
+  }
+}`;
