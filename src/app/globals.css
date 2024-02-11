@@ -63,3 +63,9 @@
     width: 100% !important;
   }
 }
+
+
+.con h3, .con h4, .con h6{
+  color: #e7e7e7 !important;
+  font-size: 1.1rem !important;
+}
