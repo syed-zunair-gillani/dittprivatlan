@@ -29,7 +29,6 @@ async function getData() {
 export default async function Home() {
 
   const { mortgage, categories, homepage } =  await getData()
-  console.log("🚀 ~ Home ~ homepage:", homepage)
 
   const backgroundStyle = {
     background: 'linear-gradient(rgba(9, 38, 53, 0.4), rgba(9, 38, 53, 1))',
@@ -87,14 +86,14 @@ export default async function Home() {
       <section className='container mx-auto my-20 px-3'>
         {
           homepage?.pageContent?.map((item:any, idx:number) => (
-            <div key={idx} className={`grid gap-8 items-center my-8 ${!item?.image ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`} >
+            <div key={idx} className={`grid gap-8 items-center my-12 ${!item?.image ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`} >
               <div className={`${idx % 2 === 0 ? '' : 'order-1'}`}>
                 <h3 className='font-bold text-3xl text-main'>{item.title}</h3>
                 <div className='text-gray-700 mt-4 text-xl content' dangerouslySetInnerHTML={{ __html:item.info }} />
               </div>
               {
                 item?.image && <div>
-                  <Image src={item?.image?.mediaItemUrl} alt={item.title} width={600} height={600} className='rounded-2xl' />
+                  <Image src={item?.image?.mediaItemUrl} alt={item.title} width={600} height={600} className='rounded-2xl object-cover !w-full !h-[380px]' />
                 </div>
               }
             </div>
