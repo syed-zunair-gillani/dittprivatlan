@@ -62,7 +62,7 @@ query mortgage($id: ID = "") {
 
 export const QCategoriesList = gql`
 query categories {
-  categories {
+  categories(where: { orderby: { field: DATE, order: ASC } }) {
     nodes {
       title
       slug
@@ -82,6 +82,7 @@ query mortgage($id: ID = "") {
     categoriesPostMeta {
       listCard {
         link
+        trustpilotUrl
         lists {
           list
         }
@@ -97,6 +98,35 @@ query mortgage($id: ID = "") {
         }
         readMoreLink
         title
+      }
+    }
+  }
+}`;
+
+
+export const QBrokers = gql`
+query brokers($terms: [String] = "private-loan") {
+  brokers(
+    first: 100
+    where: {taxQuery: {taxArray: {taxonomy: BROKERCATEGORY, terms: $terms, field: SLUG}}}
+  ) {
+    nodes {
+      title
+      slug
+      content
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
+      }
+      brokerCategories {
+        nodes {
+          name
+          slug
+        }
+      }
+      brokerPostMeta {
+        applyLink
       }
     }
   }

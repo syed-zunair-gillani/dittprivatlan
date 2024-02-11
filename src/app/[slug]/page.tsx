@@ -8,12 +8,7 @@ import Link from 'next/link'
 import React from 'react'
 
 async function getData(props: any) {
-  const response = await client.query({
-    query: QSingleCategory,
-    variables: {
-      id: props.params.slug,
-    },
-  });
+  
   const brokerResponse = await client.query({
     query: QBrokers,
     variables: {
@@ -21,41 +16,27 @@ async function getData(props: any) {
     },
   });
 
-  const category = response.data.category
   const brokers = brokerResponse.data.brokers
   return {
-    category,
     brokers
   }
 }
 
 async function SlugCategory(props: any) {
-  const {category, brokers} = await getData(props)
+  const { brokers} = await getData(props)
 
   return (
     <>
-      <PageBanner title={category.title} />
-      {
+      <PageBanner title={'category.title'} />
+      {/* {
         category?.content &&
         <>
           <section className='my-20 container content px-3 mx-auto'>
             <div dangerouslySetInnerHTML={{ __html: category?.content }} />
-            <StarRating />
           </section>
         </>
-      }
-      {
-        category?.categoriesPostMeta?.listCard?.length > 0 &&
-        <section className='container content mb-20 px-3 mx-auto'>
-          <div className='grid col-span-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-            {
-              category?.categoriesPostMeta?.listCard?.map((item: any, idx: number) => (
-                <ListCard key={idx} data={item}/>
-              ))
-            }
-          </div>
-        </section>
-      }
+      } */}
+      <StarRating />
 
       {
         brokers?.nodes.length > 0 &&
@@ -68,8 +49,8 @@ async function SlugCategory(props: any) {
                     <Image src={item?.featuredImage?.node?.mediaItemUrl} alt={item?.title} width={300} height={200} className='w-full h-full object-cover rounded-xl' />
                     <h4 className='font-bold my-6'>{item?.title}</h4>
                     {/* <p className='mb-4'>Krav: Svenskt registrerat företag, enskild firma eller AB. Försäljning i minst 6 månader.</p> */}
-                    <Link href={'/'+ item.slug || '#'} className='bg-main w-full hover:bg-transparent hover:text-main border border-transparent hover:border-main text-sec py-2.5 font-semibold rounded-md'>Ansök</Link>
-                    <Link href={'/'+item.slug || '#'} className='bg-transprent w-full text-main border hover:text-sec hover:bg-main hover:border-transparent border-main mt-3 py-2.5 font-semibold rounded-md'>Låna nu</Link>
+                    <Link href={item.applyLink || '#'} className='bg-main w-full hover:bg-transparent hover:text-main border border-transparent hover:border-main text-sec py-2.5 font-semibold rounded-md'>Ansök</Link>
+                    <Link href={item.readMoreLink || '#'} className='bg-transprent w-full text-main border hover:text-sec hover:bg-main hover:border-transparent border-main mt-3 py-2.5 font-semibold rounded-md'>Låna nu</Link>
                   </div>
                 </div>
               ))
@@ -84,5 +65,8 @@ async function SlugCategory(props: any) {
 }
 
 export default SlugCategory
+
+
+const data = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 

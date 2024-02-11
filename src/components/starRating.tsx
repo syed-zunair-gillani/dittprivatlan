@@ -9,7 +9,7 @@ const StarRating = () => {
      }
      return (
           <>
-               <section className='mt-10 container mx-auto px-3'>
+               <section className='mt-10 container mx-auto '>
                     <h6 className='text-xl font-bold text-sec'>Rate This article</h6>
                     <div className="inline-flex gap-1 mt-2 text-[#ECD142] items-center hover:cursor-pointer text-3xl">
                          {[1, 2, 3, 4, 5].map((star, id) => (
