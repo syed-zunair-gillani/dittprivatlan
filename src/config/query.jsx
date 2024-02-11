@@ -131,3 +131,22 @@ query brokers($terms: [String] = "private-loan") {
     }
   }
 }`;
+
+
+export const QSingleBrokers = gql`
+query brokers($id: ID = "compari-loan") {
+  broker(id: $id, idType: URI) {
+    title
+    featuredImage {
+      node {
+        mediaItemUrl
+      }
+    }
+    brokerPostMeta {
+      applyLink
+      totalRating
+      avgRating
+    }
+    content
+  }
+}`;

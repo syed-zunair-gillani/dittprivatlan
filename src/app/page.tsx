@@ -10,6 +10,8 @@ import MorgageCard from '@/components/morgageCard';
 import Range from '@/components/range';
 import { client } from '@/config/client'
 import { QMortgages, QCategoriesList } from '@/config/query'
+import { FaCreditCard } from "react-icons/fa";
+
 
 async function getData() {
   const response = await client.query({ query: QMortgages });
@@ -25,7 +27,6 @@ async function getData() {
 export default async function Home() {
 
   const { mortgage, categories } =  await getData()
-  console.log("🚀 ~ Home ~ categories:", categories)
 
   const backgroundStyle = {
     background: 'linear-gradient(rgba(9, 38, 53, 0.4), rgba(9, 38, 53, 1))',
@@ -119,6 +120,10 @@ const dataIconList = [
   {
     icon: <FaCcVisa />,
     name: 'visa card',
+  },
+  {
+    icon: <FaCreditCard />,
+    name: 'credit card sign',
   },
 ]
 

@@ -3,7 +3,7 @@
 import React from 'react'
 import { FaStar } from 'react-icons/fa6'
 
-const StarRating = () => {
+const StarRating = ({tRating,avgRating}:any) => {
      const handleStartRating = (star: any) => {
 
      }
@@ -18,7 +18,7 @@ const StarRating = () => {
                               </>
                          ))}
                     </div>
-                    <p className='mt-1'>76 roster, Betyg: 4.8/5</p>
+                    <p className='mt-1'>{tRating} roster, Betyg: {avgRating}/5</p>
                </section>
           </>
      )
